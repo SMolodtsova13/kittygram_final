@@ -19,7 +19,7 @@ services:
       - db
     volumes:
       - static:/static
-      - media:/app/media
+      - media:/media/
   
   frontend:
     env_file: .env
@@ -39,4 +39,4 @@ services:
       - 9000:80
     volumes:
       - static:/static
-      - media:/app/media
+      - media:/media/
