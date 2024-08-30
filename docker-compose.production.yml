@@ -21,7 +21,6 @@ services:
       - static:/static
       - media:/media/
 
-      
   frontend:
     image: smolodtsova13/kittygram_frontend
     env_file: .env
