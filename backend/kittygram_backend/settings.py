@@ -5,7 +5,7 @@ from django.core.management.utils import get_random_secret_key
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get('SECRET_KEY', None)
+SECRET_KEY = os.environ.get(${{ secrets.SECRET_KEY }}, None)
 
 if not SECRET_KEY:
     SECRET_KEY = get_random_secret_key()
