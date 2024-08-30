@@ -5,7 +5,7 @@ volumes:
 
 services:
   db:
-    image: postgres:13.10
+    image: postgres:13
     env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
@@ -16,8 +16,8 @@ services:
     depends_on:
       - db
     volumes:
-      - static:/backend_static
-      - media:/media/
+      - static:/static
+      - media:/app/media
 
   frontend:
     image: ${{ secrets.DOCKER_USERNAME }}/kittygram_frontend
@@ -26,16 +26,18 @@ services:
       - backend  
     command: cp -r /app/build/. /static/
     volumes:
-      - static:/frontend_static
+      - static:/static
 
   gateway:
     image: ${{ secrets.DOCKER_USERNAME }}/kittygram_gateway
     env_file: .env
     depends_on:
-      - backend
       - frontend  
     ports:
       - 9000:80
     volumes:
-      - static:/staticfiles/
-      - media:/media/
+      - static:/static
+      - media:/app/media
+
+
+
