@@ -19,7 +19,7 @@ services:
       - db
     volumes:
       - static:/static
-      - media:/app/media
+      - media:/media/
 
       
   frontend:
@@ -41,4 +41,4 @@ services:
       - 9000:80
     volumes:
       - static:/static
-      - media:/media
+      - media:/media/
