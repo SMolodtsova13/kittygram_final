@@ -13,7 +13,7 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   backend:
-    image: smolodtsova13/kittygram_backend
+    image: ${{ secrets.DOCKER_USERNAME }}/kittygram_backend
     env_file: .env
     depends_on:
       - db
@@ -22,7 +22,7 @@ services:
       - media:/media/
 
   frontend:
-    image: smolodtsova13/kittygram_frontend
+    image: ${{ secrets.DOCKER_USERNAME }}/kittygram_frontend
     env_file: .env
     depends_on:
       - backend  
@@ -31,7 +31,7 @@ services:
       - static:/static
 
   gateway:
-    image: smolodtsova13/kittygram_gateway
+    image: ${{ secrets.DOCKER_USERNAME }}/kittygram_gateway
     env_file: .env
     depends_on:
       - backend
