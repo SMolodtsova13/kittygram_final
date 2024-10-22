@@ -86,7 +86,7 @@ Kittygram — это социальная сеть для обмена фото�
     sudo docker-compose -f /home/YOUR_USERNAME/kittygram/docker-compose.production.yml up -d
     ```
 
-- Выполните миграции, соберите статические файлы бэкенда и скопируйте их в `/backend_static/static/`:
+- Выполните миграции, соберите статические файлы бэкенда и скопируйте их в `/static/static/`:
 
     ```
     sudo docker-compose -f /home/YOUR_USERNAME/kittygram/docker-compose.production.yml exec backend python manage.py migrate
